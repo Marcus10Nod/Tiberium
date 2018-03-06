@@ -1,5 +1,6 @@
-  git config --global user.email "polozyuk.ser99@gmail.com"
+git config --global user.email "polozyuk.ser99@gmail.com"
 git config --global user.name "Oskorbin"
+cd e:/Sergey/project
 git init
 git add README.md
 git commit -m "first commit"
