@@ -1,0 +1,10 @@
+﻿/*RusselSquare  English*/
+@font-face {
+  font-family: 'RusselSquare';
+  src:url(RusselSquare.woff2) format('woff2');
+}
+/*alienfont Russian*/
+@font-face {
+  font-family: 'AAFutured';
+  src:url(AAFutured.woff2) format('woff2');
+}

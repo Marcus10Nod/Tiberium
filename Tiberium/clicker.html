@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Gamedev Canvas Workshop</title>
+	<link href = "font/font.css" rel = "stylesheet">
+    <style>
+      canvas { background: #eee; display: block;  margin: 0 auto;  }
+    </style>
+	
+</head>
+<body>
+
+<canvas id="myCanvas" width="1480" height="1010"> /*создаем поле с шириной в 1200 и в высоту 500.*/
+</canvas>
+<script>
+  var canvas = document.getElementById("myCanvas"); /*Это и последующая строка отвечает за получение доступу к канвасу.*/
+  var ctx = canvas.getContext("2d");
+  
+  var score = 0;
+  function Score(){
+    ctx.font = "30px AAFutured";
+    ctx.fillStyle = "yellow";
+    ctx.fillText("Тиберий: "+score,15,30);
+  }
+ 		function Background() {// фон
+		
+	this.pic  = new Image();
+	this.pic.src = 'picture/background/background_tiberium.png';
+	var d = 0;
+	this.draw = function(){
+	ctx.drawImage(this.pic, 0,0);
+	}
+    this.minY = 35;
+    this.MaxY = 359;
+    this.minX = 18;
+    this.maxX = 801;
+    this.onclick = function(x,y){
+      if (x>=this.minX  && x<=this.maxX && y>= this.minY && y<=this.MaxY){
+        score++;
+      }
+    }
+  }
+  var zrada = new Background();
+function draw(){
+ctx.clearRect(0, 0, canvas.width, canvas.height); /*очищает экран.*/
+zrada.draw(); // фон
+Score();
+}
+document.addEventListener("mousedown",onclick,false);
+setInterval(draw, 40); /* Интервал */
+function onclick(event)
+  {
+  var rect = canvas.getBoundingClientRect();
+  var x = event.clientX - rect.left;
+  var y = event.clientY - rect.top;
+zrada.onclick(x,y);
+  }
+</script>
+
+</body>
+</html>
